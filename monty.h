@@ -44,5 +44,12 @@ typedef struct instruction_s
 	char *opcode;
 	void (*f)(stack_t **stack, unsigned int ln);
 } instruction_t;
-
+void pall_stack(stack_t **, unsigned int);
+void push_stack(stack_t **, unsigned int);
+void get_function(char *opcode, char *value, int ln, int format);
+void function_handler(op_func, char *, char *, int, int);
+void free_nodes(void);
+int parse_line(char *buffer, int line_number, int format);
+void _fread(FILE *fd);
+void _fopen(char *file);
 #endif /* monty.h */
