@@ -52,4 +52,5 @@ void free_nodes(void);
 int parse_line(char *, int, int);
 void _fread(FILE *);
 void _fopen(char *);
+void pop_stack(stack_t **stack, unsigned int line_number);
 #endif /* monty.h */

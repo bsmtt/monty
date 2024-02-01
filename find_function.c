@@ -17,6 +17,7 @@ void get_function(char *opcode, char *value, int ln, int format)
 	instruction_t func_list[] = {
 		{"push", push_stack},
 		{"pall", pall_stack},
+		{"pop", pop_stack},
 		{NULL, NULL}
 	};
 
