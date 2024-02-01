@@ -32,7 +32,7 @@ void get_function(char *opcode, char *value, int ln, int format)
 		}
 	}
 	if (flag == 1)
-		err(3, ln, opcode);
+		fprintf(stderr, "L%d: unknown instruction %s\n", ln, opcode);
 }
 
 /**
@@ -99,11 +99,11 @@ void function_handler(op_func func, char *op, char *val, int ln, int format)
 			flag = -1;
 		}
 		if (val == NULL)
-			err(5, ln);
+			fprintf(stderr, "L%d: usage: push integer\n", ln);
 		for (i = 0; val[i] != '\0'; i++)
 		{
 			if (isdigit(val[i]) == 0)
-				err(5, ln);
+				fprintf(stderr, "L%d: usage: push integer\n", ln);
 		}
 		node = create_node(atoi(val) * flag);
 		if (format == 0)
