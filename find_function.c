@@ -19,6 +19,7 @@ void get_function(char *opcode, char *value, int ln, int format)
 		{"pall", pall_stack},
         {"pint", print_top},
 		{"pop", pop_stack},
+		{"add", add_toptwo_nodes},
 		{NULL, NULL}
 	};
 
@@ -127,4 +128,19 @@ void function_handler(op_func func, char *op, char *val, int ln, int format)
 	}
 	else
 		func(&head, ln);
+}
+/**
+ * add_toptwo_nodes - Adds the top two elements of the stack.
+ * @stack: Pointer to a pointer pointing to top node of the stack.
+ * @ln: Interger representing the line number of of the opcode.
+ */
+void add_toptwo_nodes(stack_t **stack, unsigned int ln)
+{
+	if (!stack || !*stack || !(*stack)->next)
+		print_error(8, ln, "add");
+
+	(*stack) = (*stack)->next;
+	(*stack)->n = (*stack)->n + (*stack)->prev->n;
+	free((*stack)->prev);
+	(*stack)->prev = NULL;
 }
