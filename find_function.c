@@ -18,6 +18,7 @@ void get_function(char *opcode, char *value, int ln, int format)
 		{"push", push_stack},
 		{"pall", pall_stack},
         {"pint", print_top},
+		{"pop", pop_stack},
 		{NULL, NULL}
 	};
 
