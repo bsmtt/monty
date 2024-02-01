@@ -42,6 +42,7 @@ typedef struct instruction_s
 extern stack_t *head;
 typedef void (*op_func)(stack_t **, unsigned int);
 
+void nop(stack_t **, unsigned int);
 void add_toptwo_nodes(stack_t **, unsigned int);
 void print_error(int err_number, ...);
 void print_top(stack_t **head, unsigned int ln);
