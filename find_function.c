@@ -34,7 +34,7 @@ void get_function(char *opcode, char *value, int ln, int format)
 		}
 	}
 	if (flag == 1)
-		void print_error(3, ln);
+		print_error(3, ln);
 }
 
 /**
@@ -85,7 +85,7 @@ void pall_stack(stack_t **top_node, unsigned int ln)
 void print_top(stack_t **head, unsigned int ln)
 {
 	if (!head || !*head)
-		void print_error(6, ln);
+		print_error(6, ln);
 	printf("%d\n", (*head)->n);
 }
 
