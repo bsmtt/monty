@@ -8,8 +8,6 @@
 #include <ctype.h>
 #include <stdarg.h>
 
-extern stack_t *head;
-typedef void (*op_func)(stack_t **, unsigned int);
 
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
