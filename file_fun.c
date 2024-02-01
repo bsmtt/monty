@@ -1,8 +1,8 @@
 include "monty.h"
 
 /**
- * open_file - opens a file
- * @file_name: the file namepath
+ * _fopen - opens a file
+ * @file: the file namepath
  * Return: void
  */
 void _fopen(char *file)
@@ -17,7 +17,7 @@ void _fopen(char *file)
 }
 
 /**
- * read_file - reads a file
+ * _fread - reads a file
  * @fd: pointer to file descriptor
  * Return: void
  */
