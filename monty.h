@@ -57,4 +57,5 @@ int parse_line(char *, int, int);
 void _fread(FILE *);
 void _fopen(char *);
 void pop_stack(stack_t **stack, unsigned int line_number);
+void swap(stack_t **stack, unsigned int line_number);
 #endif /* monty.h */
