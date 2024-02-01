@@ -46,14 +46,14 @@ void push_stack(stack_t **new_node, __attribute__((unused))unsigned int ln)
 
 	if (!new_node || !*new_node)
 		exit(EXIT_FAILURE);
-	if (head)
-    {
-        tmp = head;
-        head = *new_node;
-        head->next = tmp;
-        tmp->prev = head;
-	}
-    head = *new_node;
+if (head)
+{
+tmp = head;
+head = *new_node;
+head->next = tmp;
+tmp->prev = head;
+}
+head = *new_node;
 }
 
 /**
