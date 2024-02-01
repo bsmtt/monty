@@ -10,10 +10,6 @@
 
 extern stack_t *head;
 typedef void (*op_func)(stack_t **, unsigned int);
-void pall_stack(stack_t **, unsigned int);
-void push_stack(stack_t **, unsigned int);
-void get_function(char *, char *, int, int);
-void function_handler(op_func, char *, char *, int, int);
 
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
@@ -46,10 +42,10 @@ typedef struct instruction_s
 } instruction_t;
 void pall_stack(stack_t **, unsigned int);
 void push_stack(stack_t **, unsigned int);
-void get_function(char *opcode, char *value, int ln, int format);
+void get_function(char *, char *, int, int);
 void function_handler(op_func, char *, char *, int, int);
 void free_nodes(void);
-int parse_line(char *buffer, int line_number, int format);
-void _fread(FILE *fd);
-void _fopen(char *file);
+int parse_line(char *, int, int);
+void _fread(FILE *);
+void _fopen(char *);
 #endif /* monty.h */
