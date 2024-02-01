@@ -87,7 +87,7 @@ void pall_stack(stack_t **top_node, unsigned int ln)
 void print_top(stack_t **head, unsigned int ln)
 {
 	if (!head || !*head)
-		print_error(6, ln);
+		print_error2(6, ln);
 	printf("%d\n", (*head)->n);
 }
 
@@ -138,7 +138,7 @@ void function_handler(op_func func, char *op, char *val, int ln, int format)
 void add_toptwo_nodes(stack_t **stack, unsigned int ln)
 {
 	if (!stack || !*stack || !(*stack)->next)
-		print_error(8, ln, "add");
+		print_error2(8, ln, "add");
 
 	(*stack) = (*stack)->next;
 	(*stack)->n = (*stack)->n + (*stack)->prev->n;
