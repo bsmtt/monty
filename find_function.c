@@ -15,6 +15,7 @@ void get_function(char *opcode, char *value, int ln, int format)
 	int flag;
 
 	instruction_t func_list[] = {
+		{"nop", nop},
 		{"push", push_stack},
 		{"pall", pall_stack},
         {"pint", print_top},
@@ -131,8 +132,8 @@ void function_handler(op_func func, char *op, char *val, int ln, int format)
 }
 /**
  * add_toptwo_nodes - Adds the top two elements of the stack.
- * @stack: Pointer to a pointer pointing to top node of the stack.
- * @ln: Interger representing the line number of of the opcode.
+ * @stack: Pointer to top node of the stack.
+ * @ln: line number of of the opcode.
  */
 void add_toptwo_nodes(stack_t **stack, unsigned int ln)
 {
@@ -143,4 +144,14 @@ void add_toptwo_nodes(stack_t **stack, unsigned int ln)
 	(*stack)->n = (*stack)->n + (*stack)->prev->n;
 	free((*stack)->prev);
 	(*stack)->prev = NULL;
+}
+/**
+ * nop - doesn’t do anything.
+ * @stack: Pointer to top node of the stack.
+ * @ln: line number of of the opcode.
+ */
+void nop(stack_t **stack, unsigned int ln)
+{
+	(void)stack;
+	(void)ln;
 }
