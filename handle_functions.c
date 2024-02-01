@@ -1,7 +1,7 @@
 #include "monty.h"
 
 /**
-* pop - Delete top of list
+* pop_stack - Delete top of list
 * @stack: Double linked list
 * @line_number: File line execution
 */
