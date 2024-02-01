@@ -18,9 +18,10 @@ void get_function(char *opcode, char *value, int ln, int format)
 		{"nop", nop},
 		{"push", push_stack},
 		{"pall", pall_stack},
-        {"pint", print_top},
+        	{"pint", print_top},
 		{"pop", pop_stack},
 		{"add", add_toptwo_nodes},
+		{"swap", swap},
 		{NULL, NULL}
 	};
 
