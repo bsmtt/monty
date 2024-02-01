@@ -61,6 +61,6 @@ int parse_line(char *buffer, int line_number, int format)
 	if (strcmp(opcode, "queue") == 0)
 		return (1);
 
-	find_func(opcode, value, line_number, format);
+	get_function(opcode, value, line_number, format);
 	return (format);
 }
