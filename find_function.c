@@ -17,6 +17,7 @@ void get_function(char *opcode, char *value, int ln, int format)
 	instruction_t func_list[] = {
 		{"push", push_stack},
 		{"pall", pall_stack},
+        {"pint", print_top},
 		{NULL, NULL}
 	};
 
@@ -32,7 +33,7 @@ void get_function(char *opcode, char *value, int ln, int format)
 		}
 	}
 	if (flag == 1)
-		fprintf(stderr, "L%d: unknown instruction %s\n", ln, opcode);
+		void print_error(3, ln);
 }
 
 /**
@@ -76,6 +77,18 @@ void pall_stack(stack_t **top_node, unsigned int ln)
 	}
 }
 /**
+ * print_top - Print top node of the stack.
+ * @head: Pointer to top node of the stack.
+ * @ln: line number of of the opcode.
+ */
+void print_top(stack_t **head, unsigned int ln)
+{
+	if (!head || !*head)
+		void print_error(6, ln);
+	printf("%d\n", (*head)->n);
+}
+
+/**
  * function_handler - Calls the required function.
  * @func: Pointer to the function that is about to be called.
  * @op: string representing the opcode.
@@ -98,12 +111,12 @@ void function_handler(op_func func, char *op, char *val, int ln, int format)
 			val = val + 1;
 			flag = -1;
 		}
-		if (val == NULL)
-			fprintf(stderr, "L%d: usage: push integer\n", ln);
+		if (!val)
+			print_error(5, ln);
 		for (i = 0; val[i] != '\0'; i++)
 		{
 			if (isdigit(val[i]) == 0)
-				fprintf(stderr, "L%d: usage: push integer\n", ln);
+				print_error(5, ln);
 		}
 		node = generate_node(atoi(val) * flag);
 		if (format == 0)

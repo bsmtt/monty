@@ -10,7 +10,7 @@ void _fopen(char *file)
 	FILE *fd = fopen(file, "r");
 
 	if (file == NULL || fd == NULL)
-		fprintf(stderr, "Error: Can't open file %s\n", file);
+		void print_error(2, file);
 
 	_fread(fd);
 	fclose(fd);
@@ -23,13 +23,13 @@ void _fopen(char *file)
  */
 void _fread(FILE *fd)
 {
-	int line_number, format = 0;
+	int ln, format = 0;
 	char *buffer = NULL;
 	size_t len = 0;
 
-	for (line_number = 1; getline(&buffer, &len, fd) != -1; line_number++)
+	for (ln = 1; getline(&buffer, &len, fd) != -1; ln++)
 	{
-		format = parse_line(buffer, line_number, format);
+		format = parse_line(buffer, ln, format);
 	}
 	free(buffer);
 }
@@ -38,21 +38,21 @@ void _fread(FILE *fd)
  * parse_line - Separates each line into tokens to determine
  * which function to call
  * @buffer: line from the file
- * @line_number: line number
+ * @ln: line number
  * @format:  storage format. If 0 Nodes will be entered as a stack.
  * if 1 nodes will be entered as a queue.
  * Return: Returns 0 if the opcode is stack. 1 if queue.
  */
-int parse_line(char *buffer, int line_number, int format)
+int parse_line(char *buffer, int ln, int format)
 {
 	char *opcode, *value;
 	const char *delim = "\n ";
 
-	if (buffer == NULL)
-		fprintf(stderr, "Error: malloc failed\n");
+	if (!buffer)
+		void print_error(4, ln);
 
 	opcode = strtok(buffer, delim);
-	if (opcode == NULL)
+	if (!opcode)
 		return (format);
 	value = strtok(NULL, delim);
 
@@ -61,6 +61,6 @@ int parse_line(char *buffer, int line_number, int format)
 	if (strcmp(opcode, "queue") == 0)
 		return (1);
 
-	get_function(opcode, value, line_number, format);
+	get_function(opcode, value, ln, format);
 	return (format);
 }

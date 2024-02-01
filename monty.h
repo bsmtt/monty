@@ -42,6 +42,8 @@ typedef struct instruction_s
 extern stack_t *head;
 typedef void (*op_func)(stack_t **, unsigned int);
 
+void print_error(int err_number, ...);
+void print_top(stack_t **head, unsigned int ln);
 stack_t *generate_node(int);
 void push_queue(stack_t **, unsigned int);
 void pall_stack(stack_t **, unsigned int);
