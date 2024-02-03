@@ -60,3 +60,20 @@ void sub(stack_t **stack, unsigned int line_number)
 	(*stack)->next->n = sub;
 	pop_stack(stack, line_number);
 }
+
+/**
+ * div - divide the top two elements of the stack.
+ * @stack: Pointer to a pointer pointing to top node of the stack.
+ * @line_number: Interger representing the line number of of the opcode.
+ */
+void div_stack(stack_t **stack, unsigned int line_number)
+{
+        int div;
+
+        if (stack == NULL || *stack == NULL || (*stack)->next == NULL)
+                print_error2(8, line_number, "sub");
+
+        div = (*stack)->next->n / (*stack)->n;
+        (*stack)->next->n = div;
+	pop_stack(stack, line_number);
+}
