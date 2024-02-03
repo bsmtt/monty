@@ -71,7 +71,10 @@ void div_stack(stack_t **stack, unsigned int line_number)
         int div;
 
         if (stack == NULL || *stack == NULL || (*stack)->next == NULL)
-                print_error2(8, line_number, "sub");
+                print_error2(8, line_number, "div");
+
+	if ((*stack)->n == 0)
+		print_error2(9, line_number);
 
         div = (*stack)->next->n / (*stack)->n;
         (*stack)->next->n = div;
