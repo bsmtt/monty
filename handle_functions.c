@@ -58,6 +58,5 @@ void sub(stack_t **stack, unsigned int line_number)
 
 	sub = (*stack)->next->n - (*stack)->n;
 	(*stack)->next->n = sub;
-	free((*stack)->next->prev);
-	(*stack)->next->prev = NULL;
+	pop_stack(stack, line_number);
 }
