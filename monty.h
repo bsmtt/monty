@@ -59,4 +59,5 @@ void _fread(FILE *);
 void _fopen(char *);
 void pop_stack(stack_t **stack, unsigned int line_number);
 void swap(stack_t **stack, unsigned int line_number);
+void sub(stack_t **stack, unsigned int line_number);
 #endif /* monty.h */

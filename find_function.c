@@ -22,6 +22,7 @@ instruction_t func_list[] = {
 {"pop", pop_stack},
 {"add", add_toptwo_nodes},
 {"swap", swap},
+{"sub", sub},
 {NULL, NULL}
 };
 

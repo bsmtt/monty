@@ -43,3 +43,21 @@ void swap(stack_t **stack, unsigned int line_number)
 	(*stack)->n = (*stack)->next->n;
 	(*stack)->next->n = tmp;
 }
+
+/**
+ * sub - sub the top two elements of the stack.
+ * @stack: Pointer to a pointer pointing to top node of the stack.
+ * @line_number: Interger representing the line number of of the opcode.
+ */
+void sub(stack_t **stack, unsigned int line_number)
+{
+	int sub;
+
+	if (stack == NULL || *stack == NULL || (*stack)->next == NULL)
+		print_error2(8, line_number, "sub");
+
+	sub = (*stack)->next->n - (*stack)->n;
+	(*stack)->next->n = sub;
+	free((*stack)->next->prev);
+	(*stack)->next->prev = NULL;
+}
