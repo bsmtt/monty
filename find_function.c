@@ -24,6 +24,8 @@ instruction_t func_list[] = {
 {"swap", swap},
 {"sub", sub},
 {"div", div_stack},
+{"mul", mul},
+{"mod", mod},
 {NULL, NULL}
 };
 
