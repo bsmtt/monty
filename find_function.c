@@ -38,7 +38,7 @@ flag = 0;
 }
 }
 if (flag == 1)
-print_error(3, ln);
+print_error(3, ln, opcode);
 }
 
 /**
