@@ -24,15 +24,15 @@ void mul(stack_t **stack, unsigned int line_number)
  */
 void mod(stack_t **stack, unsigned int line_number)
 {
-        int mod;
+	int mod;
 
-        if (stack == NULL || *stack == NULL || (*stack)->next == NULL)
-                print_error2(8, line_number, "mod");
+	if (stack == NULL || *stack == NULL || (*stack)->next == NULL)
+		print_error2(8, line_number, "mod");
 
 	if ((*stack)->n == 0)
 		print_error2(9, line_number);
 
-        mod = (*stack)->next->n % (*stack)->n;
-        (*stack)->next->n = mod;
+	mod = (*stack)->next->n % (*stack)->n;
+	(*stack)->next->n = mod;
 	pop_stack(stack, line_number);
 }
